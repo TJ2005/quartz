@@ -4,6 +4,8 @@ on:
     workflows: ["Build Preview Deployment"]
     types:
       - completed
+env:
+  THEME_NAME: <THEME-NAME>
 
 permissions:
   actions: read
