@@ -17,7 +17,8 @@ PageTitle.css = `
 .page-title {
   font-size: 1.75rem;
   margin: 0;
-  font-family: var(--titleFont);
+  font-weight:200 !important;
+  font-family: 'Bitcount Grid Double' !important;
 }
 `
 

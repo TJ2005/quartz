@@ -35,7 +35,7 @@ export default (() => {
       (e) => e.name === CustomOgImagesEmitterName,
     )
     const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
-
+    // console.log(cfg.theme)
     return (
       <head>
         <title>{title}</title>
