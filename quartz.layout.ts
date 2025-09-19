@@ -11,20 +11,17 @@ export const sharedPageComponents: SharedLayout = {
       options:{
         repo: 'tj2005/Obsidian-Public-Notes',
         repoId:'R_kgDOMkqTng',
-        category: 'General',
-        categoryId: 'DIC_kwDOMkqTns4Ct98A',
-        mapping: 'url',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOMkqTns4Ct97_',
         reactionsEnabled: true,
         inputPosition:'top'
       }
     })
-
   ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
-    },
+      GitHub: "https://github.com/TJ2005/Obsidian-Notes-Public",
+      Email: "mailto:notes@tj25.xyz"},
   }),
 }
 

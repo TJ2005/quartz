@@ -13,12 +13,30 @@ const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzCompo
   )
 }
 
+const RandFont = (() => {
+  const fonts = [
+    "Bitcount Grid Double",
+    "StMartin",
+    "CHAOS16",
+    "Darkness",
+    "Hayko Demo",
+    "IntraNet",
+    "IntraNet Outline",
+    "Moctavo",
+    "Offenbach Mager",
+    "Runefa",
+    "Star Rust",
+    "CHAOS16-Alternate",
+  ]
+  return (): string => fonts[Math.floor(Math.random() * fonts.length)]
+})()
+
+const titleFont = RandFont()
 PageTitle.css = `
 .page-title {
   font-size: 1.75rem;
   margin: 0;
-  font-weight:200 !important;
-  font-family: 'Bitcount Grid Double' !important;
+  font-family: '${titleFont}', sans-serif;
 }
 `
 
