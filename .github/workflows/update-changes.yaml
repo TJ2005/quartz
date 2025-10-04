@@ -26,6 +26,7 @@ jobs:
           cd /var/www/quartz
           git pull origin v4
           echo "pulled latest changes."
+          which npx
           npx quartz build
           echo "Site has been rebuilt"
           
