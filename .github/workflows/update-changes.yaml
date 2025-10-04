@@ -26,7 +26,6 @@ jobs:
           cd /var/www/quartz
           git pull origin v4
           echo "pulled latest changes."
-          which npx
-          npx quartz build
+          /home/deployuser/.nvm/versions/node/v22.20.0/bin/npx quartz build
           echo "Site has been rebuilt"
           
