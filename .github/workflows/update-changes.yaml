@@ -23,7 +23,7 @@ jobs:
         script: |
           echo "SSH Connection Successful"
           echo "Pulling latest changes from GitHub..."
-          cd /var/www/etc/quartz
+          cd /var/www/quartz
           git pull origin v4
           echo "pulled latest changes."
           npx quartz build
