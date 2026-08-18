@@ -1,0 +1,23 @@
+{
+  "name": "htaccess",
+  "version": "1.0.0",
+  "description": "Emits a .htaccess file for Apache servers with clean URLs and 404 handling",
+  "type": "module",
+  "license": "MIT",
+  "author": "TJ2005",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "htaccess",
+    "displayName": "Htaccess",
+    "description": "Emits a .htaccess file for Apache servers",
+    "category": "emitter",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "defaultOrder": 50,
+    "defaultEnabled": true
+  }
+}

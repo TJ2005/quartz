@@ -1,0 +1,50 @@
+name: Pull on GitHub Repo Update
+
+on:
+  push:
+    branches:
+      - v4  # Triggers on push to the 'public' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to Server via SSH
+      uses: appleboy/ssh-action@v0.1.9
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.PASSWORD }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          #!/bin/bash
+
+          echo "SSH Connection Successful"
+          echo "Pulling latest changes from GitHub..."
+          
+          # Go to project directory
+          cd /var/www/quartz || { echo "Failed to cd to /var/www/quartz"; exit 1; }
+          
+          # Pull latest changes from the v4 branch
+          git pull origin v4 || { echo "Git pull failed"; exit 1; }
+          echo "Pulled latest changes."
+          
+          # Load nvm
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          
+          # Use Node 22
+          nvm use 22 || { echo "Failed to switch to Node 22"; exit 1; }
+          echo "Using Node version: $(node -v)"
+          echo "Using npm version: $(npm -v)"
+          
+          # Install dependencies (optional but safe)
+          npm install || { echo "npm install failed"; exit 1; }
+          
+          # Build the site
+          npx quartz build || { echo "Build failed"; exit 1; }
+          echo "Site has been rebuilt successfully."
