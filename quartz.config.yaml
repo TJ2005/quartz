@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: notes.tj25.xyz
+  baseUrl: notes.tj25.tech
   ignorePatterns:
     - private
     - templates
